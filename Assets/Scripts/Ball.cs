@@ -5,6 +5,9 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public int num;
+    public AudioClip ballClip;
+    public AudioClip cueballClip;
+    public AudioClip wallClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +28,21 @@ public class Ball : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "ball")
+        {
+            GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(ballClip);
+        }
+        else if(collision.gameObject.tag == "cueball")
+        {
+            GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(cueballClip);
+        }
+        else
+        {
+            GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(wallClip);
+        }
     }
 }

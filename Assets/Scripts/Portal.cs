@@ -6,6 +6,7 @@ public class Portal : MonoBehaviour
 {
     public GameObject portal2;
     public bool disabled;
+    public AudioClip portalClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class Portal : MonoBehaviour
     {
         if (!disabled)
         {
+            GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(portalClip);
             StartCoroutine(timeout());
             collision.gameObject.transform.position = portal2.transform.position;
         }

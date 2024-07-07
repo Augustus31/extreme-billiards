@@ -137,3 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   num: 8
+  ballClip: {fileID: 8300000, guid: b6fa597821f5f23469f00ad12d13df37, type: 3}
+  cueballClip: {fileID: 8300000, guid: b6fa597821f5f23469f00ad12d13df37, type: 3}
+  wallClip: {fileID: 8300000, guid: 9ef055e6ea947cf4180f833981520747, type: 3}

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Hole : MonoBehaviour
 {
+    public AudioClip successClip;
+    public AudioClip failClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,20 +25,20 @@ public class Hole : MonoBehaviour
         {
             if(collision.gameObject.GetComponent<Ball>().num == 8)
             {
-                //REPLACE THIS
+                GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(successClip);
                 GameObject.Destroy(collision.gameObject);
                 GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().loadNextLevel();
             }
             else
             {
-                //REPLACE THIS
+                GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(failClip);
                 GameObject.Destroy(collision.gameObject);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
         if (collision.gameObject.tag == "cueball")
         {
-            //REPLACE THIS
+            GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(failClip);
             GameObject.Destroy(collision.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }

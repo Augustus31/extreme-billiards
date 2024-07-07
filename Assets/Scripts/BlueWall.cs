@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BlueWall : MonoBehaviour
 {
+    public AudioClip electroClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +22,7 @@ public class BlueWall : MonoBehaviour
         if(col.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude < 7)
         {
             col.gameObject.GetComponent<Rigidbody2D>().velocity *= 2;
+           //GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXBall(electroClip);
         }
         //HAVE SOME COOL EFFECT HERE
     }

@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
 {
     public GameObject selectedBall;
     public float velocity;
+    public AudioClip cueBallClip;
 
     private CueBall cb;
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour
         if (cb.ativo)
         {
             cb.ativo = false;
+            GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().playSFXGame(cueBallClip);
             Vector3 thisToMouse = (Camera.main.ScreenToWorldPoint(Input.mousePosition)) - GameObject.Find("CueBall").transform.position;
             Vector2 norm = thisToMouse;
             norm = norm.normalized;
