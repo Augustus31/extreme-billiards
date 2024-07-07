@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ball
+  - cueball
+  - LevelAudioController
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1557977603
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: top
+    uniqueID: 4163264983
+    locked: 0
+  - name: balls
+    uniqueID: 3404795679
     locked: 0

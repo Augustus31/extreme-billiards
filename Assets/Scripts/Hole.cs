@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hole : MonoBehaviour
 {
@@ -24,20 +25,20 @@ public class Hole : MonoBehaviour
             {
                 //REPLACE THIS
                 GameObject.Destroy(collision.gameObject);
-                print("next level reached");
+                GameObject.Find("LevelAudioController").GetComponent<LevelAudioController>().loadNextLevel();
             }
             else
             {
                 //REPLACE THIS
                 GameObject.Destroy(collision.gameObject);
-                print("reset level");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
         if (collision.gameObject.tag == "cueball")
         {
             //REPLACE THIS
             GameObject.Destroy(collision.gameObject);
-            print("reset level");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }

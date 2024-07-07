@@ -14,6 +14,16 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Convert the object's position from world space to viewport space
+        Vector3 viewportPosition = Camera.main.WorldToViewportPoint(transform.position);
+
+        // Check if the object is off-screen
+        if (viewportPosition.x < 0 || viewportPosition.x > 1 ||
+            viewportPosition.y < 0 || viewportPosition.y > 1)
+        {
+            // Destroy the game object if it is off-screen
+            Destroy(gameObject);
+        }
+
     }
 }
